@@ -1,4 +1,4 @@
-package com.aulajpamaven.course.cofig;
+package com.aulajpamaven.course.config;
 
 import java.util.Arrays;
 
