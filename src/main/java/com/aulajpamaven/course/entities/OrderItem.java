@@ -3,6 +3,7 @@ package com.aulajpamaven.course.entities;
 import java.util.Objects;
 
 import com.aulajpamaven.course.entities.pk.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -13,14 +14,10 @@ import jakarta.persistence.Table;
 public class OrderItem {
 	
 	@EmbeddedId
-	private OrderItemPK id;
+	private OrderItemPK id = new OrderItemPK();
 	
 	private Integer quantity;
 	private Double price;
-	
-//	@OneToMany(mappedBy = "client")
-//	private Set<Product> products = new HashSet<>();
-//	private Set<Order> orders = new HashSet<>();
 	
 	public OrderItem() {
 		super();
@@ -35,28 +32,21 @@ public class OrderItem {
 	}
 
 
-	public OrderItemPK getId() {
-		return id;
-	}
-
-	public void setId(OrderItemPK id) {
-		this.id = id;
-	}
-	
+	@JsonIgnore 
 	public Order getOrder() {
-		return getId().getOrder();
+		return id.getOrder();
 	}
 	
 	public void setOrder(Order order) {
-		getId().setOrder(order);
+		id.setOrder(order);
 	}
 	
 	public Product getProduct() {
-		return getId().getProduct();
+		return id.getProduct();
 	}
 	
 	public void setProduct(Product product) {
-		getId().setProduct(product);
+		id.setProduct(product);
 	}
 
 	public Integer getQuantity() {
@@ -75,14 +65,6 @@ public class OrderItem {
 		this.price = price;
 	}
 
-//	public Set<Product> getProducts() {
-//		return products;
-//	}
-//
-//	public Set<Order> getOrders() {
-//		return orders;
-//	}
-	
 	public Double subtotal() {
 		return 0.0;
 	}
