@@ -31,7 +31,6 @@ public class OrderItem {
 		this.price = price;
 	}
 
-
 	@JsonIgnore 
 	public Order getOrder() {
 		return id.getOrder();
