@@ -18,7 +18,6 @@ import com.aulajpamaven.course.entities.enums.OrderStatus;
 import com.aulajpamaven.course.repositories.CategoryRepository;
 import com.aulajpamaven.course.repositories.OrderItemRepository;
 import com.aulajpamaven.course.repositories.OrderRepository;
-import com.aulajpamaven.course.repositories.PaymentRepository;
 import com.aulajpamaven.course.repositories.ProductRepository;
 import com.aulajpamaven.course.repositories.UserRepository;
 

@@ -64,8 +64,8 @@ public class OrderItem {
 		this.price = price;
 	}
 
-	public Double subtotal() {
-		return 0.0;
+	public Double getSubtotal() {
+		return getPrice()*getQuantity();
 	}
 
 	@Override
