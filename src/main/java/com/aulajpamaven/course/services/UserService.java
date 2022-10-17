@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.aulajpamaven.course.entities.User;
 import com.aulajpamaven.course.repositories.UserRepository;
+import com.aulajpamaven.course.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -19,7 +20,7 @@ public class UserService {
 	}
 	
 	public User findById(Long id){
-		return userRepository.findById(id).get();
+		return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public User insert(User user) {
